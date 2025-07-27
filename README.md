@@ -1,3 +1,4 @@
+
 # Digital Ad Fraud Detection Project
 
 This project provides a complete, end-to-end pipeline for detecting digital advertising fraud from clickstream data. It leverages session-based feature engineering, graph-based anomaly detection, an ensemble machine learning model, and Generative AI for automated, human-readable reporting.
@@ -21,20 +22,24 @@ Digital ad fraud, including fake clicks and impressions from bots, drains billio
 
 ## Project Structure
 
+```
+
 .
 ├── data/
-│   └── criteo\_sample.csv.gz    # Sample of the Criteo dataset
-├── ad\_fraud\_detection/
-│   ├── **init**.py
-│   ├── main.py                 # Main script to run the detection pipeline
-│   ├── data\_loader.py          # Module to load and preprocess data
-│   ├── feature\_engineering.py  # Module to create behavioral features
-│   ├── graph\_detector.py       # Module for graph-based anomaly detection
-│   ├── ensemble\_model.py       # Module for ensemble ML classification
-│   └── report\_generator.py     # Module for generating fraud reports with GenAI
-├── .env                        # For storing your API key
-├── requirements.txt            # Python dependencies
-└── README.md                   # This file
+│   └── criteo_sample.csv      # Sample of the Criteo dataset
+├── ad_fraud_detection/
+│   ├── __init__.py
+│   ├── main.py                   # Main script to run the detection pipeline
+│   ├── data_loader.py            # Module to load and preprocess data
+│   ├── feature_engineering.py    # Module to create behavioral features
+│   ├── graph_detector.py         # Module for graph-based anomaly detection
+│   ├── ensemble_model.py         # Module for ensemble ML classification
+│   └── report_generator.py       # Module for generating fraud reports with GenAI
+├── .env                          # For storing your API key
+├── requirements.txt              # Python dependencies
+└── README.md                     # This file
+
+````
 
 ---
 
@@ -42,32 +47,32 @@ Digital ad fraud, including fake clicks and impressions from bots, drains billio
 
 1. **Clone the repository:**
 
-    ```bash
-    git clone <repository_url>
-    cd <repository_name>
-    ```
+   ```bash
+   git clone <repository_url>
+   cd <repository_name>
+````
 
 2. **Create a virtual environment (recommended):**
 
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-    ```
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use venv\Scripts\activate
+   ```
 
 3. **Install the required dependencies:**
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-4. **Create a `.env` file:**  
+4. **Create a `.env` file:**
    In the root directory of the project, create a file named `.env` and add your Gemini API key:
 
-    ```bash
-    GEMINI_API_KEY='your_actual_api_key_here'
-    ```
+   ```bash
+   GEMINI_API_KEY='your_actual_api_key_here'
+   ```
 
-5. **Download the data:**  
+5. **Download the data:**
    Place a sample of the Criteo Ad-Click Prediction dataset into the `data/` directory. The project is configured to read `criteo_sample.csv.gz`.
 
 ---
@@ -78,7 +83,7 @@ Execute the main pipeline script from the root directory of the project:
 
 ```bash
 python -m ad_fraud_detection.main
-````
+```
 
 ---
 
@@ -87,7 +92,6 @@ python -m ad_fraud_detection.main
 Below is a realistic example of the output you can expect when running the pipeline on a larger dataset (e.g., 50,000 rows).
 
 ```
-
 Starting Digital Ad Fraud Detection Pipeline...
 
 [Step 1/5] Loading data from data/criteo_sample.csv.gz...
@@ -165,16 +169,14 @@ Pipeline finished successfully.
 ```
 
 ---
-
+````
 ## Modules Explained
 
-**main.py:** The central script that orchestrates the entire pipeline, calling each module in sequence.
-**data\_loader.py:** Handles loading the raw clickstream data and programmatically injects realistic, synthetic fraud patterns to create a robust test dataset.
-**feature\_engineering.py:** Creates rich, session-level features from the raw data. This includes timing, frequency, duplicates, and user-agent analysis.
-**graph\_detector.py:** Constructs a graph of IP-to-device relationships and uses graph algorithms to find suspicious clusters and high-degree nodes indicative of botnets.
-**ensemble\_model.py:** Implements a hybrid of supervised (LightGBM) and unsupervised (Isolation Forest) models to score and classify clicks, complete with performance evaluation.
-**report\_generator.py:** Takes the structured output from the detection modules and uses a generative AI model (Gemini) to create a human-readable summary report.
+* **main.py:** The central script that orchestrates the entire pipeline, calling each module in sequence.
+* **data\_loader.py:** Handles loading the raw clickstream data and programmatically injects realistic, synthetic fraud patterns to create a robust test dataset.
+* **feature\_engineering.py:** Creates rich, session-level features from the raw data, including timing, frequency, duplicates, and user-agent analysis.
+* **graph\_detector.py:** Constructs a graph of IP-to-device relationships and uses graph algorithms to find suspicious clusters and high-degree nodes indicative of botnets.
+* **ensemble\_model.py:** Implements a hybrid of supervised (LightGBM) and unsupervised (Isolation Forest) models to score and classify clicks, complete with performance evaluation.
+* **report\_generator.py:** Takes the structured output from the detection modules and uses a generative AI model (Gemini) to create a human-readable summary report.
 
-```
-```
 
