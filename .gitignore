@@ -1,0 +1,37 @@
+# .gitignore for the Digital Ad Fraud Detection Project
+
+# --- Python ---
+# Virtual Environment directory
+venv/
+.venv/
+
+# Byte-compiled / optimized / C extensions
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# --- Environment Variables ---
+# Ignore the .env file to keep secret keys out of version control
+.env
+
+# --- Data ---
+# Ignore the data directory. Datasets are typically too large for Git.
+# If you have a small sample you *do* want to track, you can comment this out
+# or use a more specific rule like 'data/large_dataset.csv'.
+data/
+
+# --- IDE / Editor ---
+# VS Code
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# --- OS-specific ---
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
